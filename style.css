@@ -1,0 +1,8 @@
+@import url('https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;500;600;700;800&family=Josefin+Slab:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;1,200;1,400;1,500&display=swap'); 
+/* Para não depender o usuário ter essa fonte em seu computador, oque é muito difícil por não ser fontes padrão, foi lincado essas fontes do google no nosso arquivo css, dessa forma o site é carregado com essas fontes específicas e não com as do usuário, evitando deixar o site com a cara totalmente diferente do que foi projetado.*/
+
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0-2/css/all.min.css'); 
+/*icones minificados sem caracteres desnecessários que ocupem espaços */
+
+/* sitemanifest - Cógigo json minificado gerado automáticamente no site favicon.io para fazer com que os navegadores reconheçam os os ícones gerados */
+
