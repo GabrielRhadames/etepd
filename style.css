@@ -6,20 +6,92 @@
 
 /* sitemanifest - Cógigo json minificado gerado automáticamente no site favicon.io para fazer com que os navegadores reconheçam os os ícones gerados */
 
-*{ /* aplica para tudo no meu site, e caso eu julgue necessário eu coloco em classes individuais*/
+*{ /* Aplica para tudo no meu site, e caso eu julgue necessário eu coloco em classes individuais*/
     margin: 0;
     padding: 0;
+    list-style: none;/* Rerirar todos os bolets dos lists do site*/
+    text-decoration: none; /*Retirar todos os soblinhados dos links do site*/
 }
 
-:root{/*facilita na hora da atrubuição das fontes*/
+:root{/*Variáveis, facilita na hora da atribuição das fontes e caso haja uma mudança não ter mudar uma por uma em cada elemento.*/
     --font-primary: "Baloo 2", serif;
     --font-secundary:  "Josefin Slab", serif ;
-    --font-action: "Muli", serif;
+    --font-action: "Poppins", serif;
 }
+
+.hamburguer{
+    width: 3rem;
+    height: 3rem;
+    position: fixed; /*Para que independente da rolagem o menu permaneça fixo*/
+    z-index: 100; /*Para que fique na frente em relação ao site*/
+    right:4rem;  /*Para que fique do lado direito*/
+    top: 2rem;  /*Para descer um pouco do topo do site*/
+
+    /*Os três elementos a seguir sevem para que as linhas ho hamburger saiam de cida uma da outra, desçam e se espalhem e formem o hamburguer*/
+    display: flex;
+    flex-direction: column; /*Fas com que as linhas que formam o hamburguer ficem uma a baixo da outra ao invez de ao lado*/
+    justify-content: space-evenly; /*Para que os elementos fiquem espalhados*/
+
+    cursor: pointer;
+}
+
+.show-menu .hamburguer{
+    right: 14rem;
+    transition: all 1s;
+}
+
+.line{
+    width: 100%; /*mesmo tamanho da classe pai (.hamburguer)*/
+    height: 0.2rem;
+    background-color: #6DD5FA;
+    box-shadow: 0.1rem 0.1rem 1px #000000;
+    transition: transform 1s;
+
+}
+
+.show-menu #line1{
+    transform: rotate(42deg) translate(.5rem, .55rem);
+}
+.show-menu #line2{ /*Fazer com a linha do meio suma quando estiver no estado de show-menu */
+    opacity: 0;
+    visibility: hidden;
+}
+.show-menu #line3{
+    transform: rotate(-42deg) translate(.4rem, -.60rem);
+}
+
+.hamburguer span{
+    position: absolute; /* Indica que o elemento ficará em uma posição fixa em relação à página.*/
+    left: 4.5rem;
+    height: 2rem;
+    width: 6rem;
+    display: flex; /*centralizar o texto na vertical*/
+    align-items: center; /*entralizar o texto na horizontal*/;
+    justify-content: center;
+    background-color: #6DD5FA;
+    COLOR: #fff;
+    font-family: var(--font-action);
+    opacity: 0; /*Por padrão nós não mostramos o texto fechar, ele só será exibido quando tivermos o show-menu e o evento hover acontecendo ao mesmo tempo */
+}
+
+.hamburguer span::before{ /*Triangulo que aponta para o "X" do menu hamburguer*/
+    content: "";
+    position: absolute;
+    border-right: .5rem solid #6DD5FA;
+    border-top: .5rem solid transparent;
+    border-left: .5rem solid transparent;
+    border-bottom: .5rem solid transparent;
+    left: -1rem;
+}
+.show-menu .hamburguer:hover span{
+    opacity: 1; /*Para que a caixa com nome menu apareça quando o hover acontecer */
+   
+}
+
 
 header{
     width: 100%;
-    height: 100vh;
+    height: 100vh;/* ou seja, uma altura de 100vh corresponde a 100% da página total, do nosso corpo do documento (body)*/
     overflow: hidden; /*esconder o overflow desabilita a possibilidade de criar uma barra de rolagem horizontal*/
     position: relative; /*para que o BANNER tenha o posicionamento adsoluto ele precisa estar dentro de um alemento com posição relativo, por isso foi posto, com isso posso colocar o BANNER em qualquer lugar no meu HEADER*/
 }
@@ -49,7 +121,7 @@ header{
 
 
 .banner{
-    position: absolute; /* Posso locolar o banner em qualquer posição dentro do HEADER*/
+    position: absolute; /*Indica que o elemento ficará em uma posição fixa em relação à página, então eu posso locolar o banner em qualquer posição dentro do HEADER*/
     top: 30%;
     left: 15%;
 }
@@ -117,3 +189,67 @@ header{
         opacity: 1;
     }
 }
+
+.sidebar{
+    width: 20rem;
+    height: 100vh;/* vh é o tamanho tamanho da tela, nesse caso a altura porque é height, isso significa que elas utilizam o tamanho total da viewport (tamanho do nosso dispositivo),  100vh corresponde a 100% da página total*/
+    background-color: #ffffff;
+    position: fixed;
+    top: 0;
+    right: -20rem;
+    transition: all 1s;
+}
+
+.show-menu .sidebar {/*Para o sideber que tiver dentro, ou for descendente direto ou indireto de um show-menu, a posisão dele a partir da direita será zero e inicialmente será -20 no elemento sidebar*/
+    right: 0;
+}
+
+.menu{
+    position: absolute; /* Indica que o elemento ficará em uma posição fixa em relação à página.*/
+    top: 40%; /* Descer */
+    left: 50%; /* Está começando no meio, mas não está centralizado */
+    transform: translate( -50%, -30%); /* Com isso ele fica realmente centralizado */
+}
+
+.menu-item{ /* para que os textos do menu fiquem também centralizado*/
+    text-align: center;
+    margin-bottom: 1.9rem;
+}
+
+.menu-link{ 
+    font-family: var(--font-action);
+    font-size: 2rem;
+    color: #2da1ff;
+    transition: color 1s; /* Deixar o efeito de transição das cores mais lento */
+}
+
+.menu-link:hover {
+    color: #ff0000;
+    text-decoration: underline ; 
+}
+
+.contacts{
+    position: absolute; /*Indica que o elemento ficará em uma posição fixa em relação à página.*/
+    bottom: 3rem; /* Por no final da tela */
+    width: 100%;
+    /*Abaixo vamos distribuir os elementos pela tela*/
+    display: flex; /*O layout flexível permite que os elementos responsivos dentro de um contêiner sejam organizados automaticamente, dependendo do tamanho da tela.*/
+    justify-content: space-evenly; /*Os itens são distribuídos igualmente no espaço disponível.*/
+
+}
+
+.contacts i{
+    
+    color: #2da1ff;
+    height: 2.5rem;
+    width: 2.5rem;
+    font-size: 2.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: color 1s; /* Deixar o efeito de transição das cores mais lento */
+}
+.contacts i:hover{
+    color: #ff0000;
+}
+

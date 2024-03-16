@@ -7,6 +7,7 @@
     <link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png">
+    
     <link rel="manifest" href="/site.webmanifest">
     <title>ETEPD</title>
     <link rel="stylesheet" href="style.css">
@@ -15,18 +16,42 @@
 <body>
     
     <div class="container">
+
+        <div class="hamburguer"> <!-- Menu hamburguer -->
+            <div class="line" id="line1"></div> <!-- Linhas que compõe o menu hamburger -->
+            <div class="line" id="line2"></div> <!-- Linhas que compõe o menu hamburger -->
+            <div class="line" id="line3"></div> <!-- Linhas que compõe o menu hamburger -->
+            <span>Fechar</span>
+        </div>
+
         <header>
             <div class="img-wrapper">
                 <img src="../images/ETEPDBackground-vert.jpg" alt="">
             </div>
             <div class="banner">
-                <h1>Escola tecnica Porto Digital - Portal Professor/Aluno</h1>
+                <h1>Escola tecnica Porto Digital <br> Portal Professor/Aluno</h1>
                 <p>Saiba mais sobre nós!</p>
                 <button>Site Oficial</button>
             </div>
         </header>
-    </div>
 
-
+        <div class="sidebar"> <!-- Literalmente Barra Lateral, ligado ao menu hamburger -->
+            <nav>
+                <ul class="menu">
+                    <li class="menu-item"><a href="#" class="menu-link">Home</a></li>
+                    <li class="menu-item"><a href="#" class="menu-link">Avisos</a></li>
+                    <li class="menu-item"><a href="#" class="menu-link">Horarios</a></li>
+                    <li class="menu-item"><a href="#" class="menu-link">Calendário Escolar</a></li>
+                    <li class="menu-item"><a href="#" class="menu-link">Cursos e Vagas</a></li>
+                    <li class="menu-item"><a href="#" class="menu-link">Fale Conosco</a></li>
+                </ul>
+            </nav>
+            <div class="contacts">
+                <a href="#"><i class="fa fa-phone"></i></a>
+                <a href="#"><i class="fa fa-envelope"></i></a>
+            </div>
+        </div>
+    </div>  
 </body>
+<script src="script.js"></script>
 </html>
